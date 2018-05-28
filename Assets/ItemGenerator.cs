@@ -10,9 +10,9 @@ public class ItemGenerator : MonoBehaviour {
 
 	public GameObject conePrefab;
 
-	private int startPos = -160;
+	private float startPos = -160f;
 
-	private int goalPos = 120;
+	private float goalPos = 120f;
 
 	private float posRange = 3.4f;
 
@@ -26,7 +26,7 @@ public class ItemGenerator : MonoBehaviour {
 
 		this.unitychan = GameObject.Find ("unitychan");
 		this.IP = unitychan.transform.position.z + 40.0f;
-		this.SP = unitychan.transform.position.z;
+		this.SP = unitychan.transform.position.z + 15.0f;
 
 /*		for(int i = startPos; i < goalPos; i+=15){
 			int num = Random.Range (0, 10);
@@ -54,12 +54,18 @@ public class ItemGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//if(unitychan.transform.position.z > IP){
-		time -= Time.deltaTime;
-			if (time <= 0.0){
-				time = 1.5f;	
+	//if(unitychan.transform.position.z > IP){
 
-			//for (int i = startPos; i < goalPos; i+=15) {
+	//	time -= Time.deltaTime;
+	//		if (time <= 0.0){
+	//			time = 1.5f;	
+
+	//for (int i = startPos; i < goalPos; i+=15) {
+
+
+		for(float i = unitychan.transform.position.z; i > SP ; SP += 15.0f){	
+		
+
 			int num = Random.Range (0, 10);
 			if (num <= 1) {
 				for (float j = -1; j <= 1; j += 0.4f) {
